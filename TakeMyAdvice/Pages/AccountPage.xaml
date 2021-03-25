@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    BackgroundColor="{StaticResource Secondary}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TakeMyAdvice.Pages.AccountPage">
+    <ContentPage.Content>
+
+
+
+        <Grid
+            RowDefinitions="16,60,*"
+            ColumnDefinitions="16,60,*">
+
+            <ffimageloadingsvg:SvgCachedImage
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                HeightRequest="300"
+                Source="resource://TakeMyAdvice.face.svg">
+                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                    <fftransformations:BlurredTransformation
+                        Radius="10" />
+                    <fftransformations:GrayscaleTransformation />
+                </ffimageloadingsvg:SvgCachedImage.Transformations>
+
+            </ffimageloadingsvg:SvgCachedImage>
+
+            <Frame
+                Grid.Column="1"
+                Grid.Row="1"
+                Style="{StaticResource RoundButtonFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+                <ffimageloadingsvg:SvgCachedImage
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    Source="resource://TakeMyAdvice.point.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <fftransformations:RotateTransformation
+                            Degrees="-90" />
+                        <fftransformations:FlipTransformation
+                            FlipType="Vertical" />
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+
+                </ffimageloadingsvg:SvgCachedImage>
+
+
+            </Frame>
+
+            <Label
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Text="User Info"
+                TextColor="White"
+                FontSize="24"
+                Grid.ColumnSpan="3"
+                FontAttributes="Bold"
+                Grid.Column="0"
+                Grid.Row="1" />
+
+            <StackLayout
+                Margin="32"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3">
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label
+                        Style="{StaticResource LabelLight}"
+                        Text="Username:" />
+                    <Label
+                        x:Name="UsernameLabel"
+                        Style="{StaticResource LabelLight}"
+                        Text="Username goes here" />
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label
+                        Style="{StaticResource LabelLight}"
+                        Text="Name:" />
+                    <Label
+                        Style="{StaticResource LabelLight}"
+                        x:Name="NameLabel"
+                        Text="Name goes here" />
+                </StackLayout>
+
+
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label
+                        Style="{StaticResource LabelLight}"
+                        Text="Email:" />
+                    <Label
+                        Style="{StaticResource LabelLight}"
+                        x:Name="EmailLabel"
+                        Text="Email goes here" />
+                </StackLayout>
+
+                <BoxView
+                    VerticalOptions="FillAndExpand" />
+                <Button
+                    x:Name="SignOutButton"
+                    Text="Sign Out" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

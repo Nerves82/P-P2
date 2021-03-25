@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    BackgroundColor="{StaticResource Secondary}"
+    x:Class="TakeMyAdvice.MainPage">
+
+    <Grid
+        RowDefinitions="16,60, *, 60,16"
+        ColumnDefinitions="16,60,*,60,16"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+
+        <Grid
+            Grid.Row="0"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="5"
+            Grid.Column="0"
+            RowDefinitions="15*,70*,15*"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <Frame
+                Padding="0"
+                Margin="32"
+                IsClippedToBounds="True"
+                Grid.Row="1"
+                HasShadow="True"
+                CornerRadius="20 ">
+
+
+                <SwipeView
+                    Padding="0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="Transparent">
+                    <SwipeView.LeftItems>
+                        <SwipeItems
+                            Mode="Execute">
+                            <SwipeItemView
+                                x:Name="GoodSwiper">
+                                <Grid
+                                    RowDefinitions="*,80,*"
+                                    BackgroundColor="{StaticResource PrimaryLight}"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="300">
+                                    <ffimageloadingsvg:SvgCachedImage
+                                        Margin="64,0,0,0"
+                                        Grid.Row="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"
+                                        WidthRequest="80"
+                                        HeightRequest="80"
+                                        Source="resource://TakeMyAdvice.thumb.svg" />
+
+                                </Grid>
+                            </SwipeItemView>
+                        </SwipeItems>
+                    </SwipeView.LeftItems>
+
+                    <SwipeView.RightItems>
+                        <SwipeItems
+                            Mode="Execute">
+                            <SwipeItemView
+                                x:Name="BadSwipper">
+                                <Grid
+                                    RowDefinitions="*,80,*"
+                                    BackgroundColor="{StaticResource RedCustom}"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="300">
+                                    <ffimageloadingsvg:SvgCachedImage
+                                        Margin="0,0,64,0"
+                                        Grid.Row="1"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        WidthRequest="80"
+                                        HeightRequest="80"
+                                        Source="resource://TakeMyAdvice.thumb.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <fftransformations:RotateTransformation
+                                                Degrees="180" />
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                </Grid>
+                            </SwipeItemView>
+
+                        </SwipeItems>
+                    </SwipeView.RightItems>
+                    <Frame
+                        x:Name="AdviceFrame"
+                        BorderColor="{StaticResource PrimaryLight}"
+                        IsClippedToBounds="True"
+                        Padding="0"
+                        Margin="40"
+                        HasShadow="False"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+
+                        <Grid
+                            RowSpacing="0"
+                            VerticalOptions="FillAndExpand"
+                            RowDefinitions="30*,2,70*">
+
+                            <ffimageloading:CachedImage
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Grid.Row="0"
+                                DownsampleToViewSize="true"
+                                Source="http://loremflickr.com/600/600/nature">
+                                <ffimageloading:CachedImage.Transformations>
+                                    <fftransformations:BlurredTransformation
+                                        Radius="5" />
+                                </ffimageloading:CachedImage.Transformations>
+                            </ffimageloading:CachedImage>
+
+                            <StackLayout
+                                Margin="16"
+                                Grid.Row="0">
+
+                                <Label
+                                    FontSize="32"
+                                    FontAttributes="Bold"
+                                    Style="{StaticResource LabelLight}"
+                                    Text="advice" />
+                                <Label
+                                    x:Name="AdviceNumberLabel"
+                                    FontSize="54"
+                                    FontAttributes="Bold"
+                                    Style="{StaticResource LabelLight}"
+                                    Text="# 23" />
+                            </StackLayout>
+
+                            <Frame
+                                HasShadow="True"
+                                Margin="-10,0,-10,0"
+                                Padding="0"
+                                BackgroundColor="{StaticResource PrimaryLight}"
+                                Grid.Row="1"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill" />
+                            <StackLayout
+                                Grid.Row="2">
+
+                                <Label
+                                    Margin="32"
+                                    x:Name="AdviceLabel"
+                                    FontAttributes="Italic"
+                                    Text="Advice Label" />
+                                <BoxView
+                                    VerticalOptions="FillAndExpand" />
+                                <StackLayout
+                                    x:Name="GoodMark"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        Style="{StaticResource LabelLight}"
+                                        Text="You marked this as good advice" />
+                                    <ffimageloadingsvg:SvgCachedImage
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        Source="resource://TakeMyAdvice.thumb.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <fftransformations:BlurredTransformation
+                                                Radius="10" />
+
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                </StackLayout>
+
+                                <StackLayout
+                                    x:Name="BadMark"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        Style="{StaticResource LabelLight}"
+                                        Text="You marked this as bad advice" />
+                                    <ffimageloadingsvg:SvgCachedImage
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        Source="resource://TakeMyAdvice.thumb.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <fftransformations:BlurredTransformation
+                                                Radius="10" />
+                                            <fftransformations:RotateTransformation
+                                                Degrees="180" />
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+                        </Grid>
+                    </Frame>
+                </SwipeView>
+            </Frame>
+        </Grid>
+
+
+        <Frame
+            Grid.Column="3"
+            Grid.Row="1"
+            Style="{StaticResource RoundButtonFrame}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="AccountButtonTapped" />
+            </Frame.GestureRecognizers>
+            <ffimageloadingsvg:SvgCachedImage
+                WidthRequest="200"
+                HeightRequest="200"
+                Source="resource://TakeMyAdvice.face.svg" />
+
+
+        </Frame>
+
+        <Frame
+            Grid.Column="1"
+            Padding="16"
+            Grid.Row="3"
+            Style="{StaticResource RoundButtonFrame}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="GoodAdviceButtonTapped" />
+            </Frame.GestureRecognizers>
+            <ffimageloadingsvg:SvgCachedImage
+                WidthRequest="200"
+                HeightRequest="200"
+                Source="resource://TakeMyAdvice.thumb.svg" />
+        </Frame>
+
+        <Frame
+            Padding="16"
+            Grid.Column="3"
+            Grid.Row="3"
+            Style="{StaticResource RoundButtonFrame}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="BadAdviceButtonTapped" />
+            </Frame.GestureRecognizers>
+
+            <ffimageloadingsvg:SvgCachedImage
+                InputTransparent="True"
+                WidthRequest="200"
+                HeightRequest="200"
+                Source="resource://TakeMyAdvice.thumb.svg">
+                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                    <fftransformations:RotateTransformation
+                        Degrees="180" />
+                </ffimageloadingsvg:SvgCachedImage.Transformations>
+            </ffimageloadingsvg:SvgCachedImage>
+
+        </Frame>
+
+
+    </Grid>
+</ContentPage>

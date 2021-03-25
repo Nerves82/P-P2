@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource SecondaryDark}"
+    x:Class="TakeMyAdvice.Pages.SignUpPage">
+    <ContentPage.Resources>
+        <Style
+            TargetType="Entry">
+            <Setter
+                Property="Margin"
+                Value="0,0,0,8" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Frame
+                HasShadow="True"
+                Margin="32,0,32,0"
+                BackgroundColor="WhiteSmoke"
+                CornerRadius="30"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center">
+
+
+
+                <StackLayout
+                    VerticalOptions="Center"
+                    Padding="16">
+
+                    <Label
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="sign up"
+                        FontSize="Large"
+                        Margin="0,0,0,16" />
+
+                    <Label
+                        Text="first name" />
+                    <Entry
+                        x:Name="FirstNameEntry"
+                        Placeholder="first name" />
+
+
+                    <Label
+                        Text="last name" />
+                    <Entry
+                        x:Name="LastNameEntry"
+                        Placeholder="last name" />
+
+
+                    <Label
+                        Text="user name" />
+                    <Entry
+                        x:Name="UserNameEntry"
+                        Placeholder="user name" />
+
+
+                    <Label
+                        Text="email" />
+                    <Entry
+                        x:Name="EmailEntry"
+                        Placeholder="email" />
+
+
+                    <Label
+                        Text="password" />
+                    <Entry
+                        IsPassword="True"
+                        x:Name="PasswordEntry"
+                        Placeholder="password" />
+
+
+                    <Label
+                        Text="confirm password" />
+                    <Entry
+                        IsPassword="True"
+                        x:Name="ConfirmPasswordEntry"
+                        Placeholder="confirm password" />
+
+                    <Grid
+                        Margin="0,16,0,0"
+                        ColumnDefinitions="70*,30*">
+                        <Button
+                            x:Name="SignUpButton"
+                            Grid.Column="0"
+                            Text="sign up" />
+                        <Button
+                            x:Name="SignInButton"
+                            Grid.Column="1"
+                            Text="sign in" />
+                    </Grid>
+
+
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

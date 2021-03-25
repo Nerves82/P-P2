@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TakeMyAdvice.App">
+    <Application.Resources>
+
+        <Color
+            x:Key="Primary">#76c893</Color>
+        <Color
+            x:Key="PrimaryDark">#52b69a</Color>
+        <Color
+            x:Key="PrimaryLight">#99d98c</Color>
+        <Color
+            x:Key="Secondary">#1a759f</Color>
+        <Color
+            x:Key="SecondaryDark">#1e6091</Color>
+        <Color
+            x:Key="SecondaryLight">#168aad</Color>
+
+        <Color
+            x:Key="RedCustom">#BE5B5B</Color>
+
+        <!--key-lime: #d9ed92ff;
+        yellow-green-crayola: #b5e48cff;
+        granny-smith-apple: #99d98cff;
+        ocean-green: #76c893ff;
+        keppel: #52b69aff;
+        viridian-green: #34a0a4ff;
+        blue-munsell: #168aadff;
+        celadon-blue: #1a759fff;
+        lapis-lazuli: #1e6091ff;
+        yale-blue: #184e77ff-->
+
+        <Style
+            x:Key="RoundButtonFrame"
+            TargetType="Frame">
+            <Setter
+                Property="BackgroundColor"
+                Value="White" />
+            <Setter
+                Property="HasShadow"
+                Value="True" />
+            <Setter
+                Property="BorderColor"
+                Value="{StaticResource PrimaryLight}" />
+            <Setter
+                Property="CornerRadius"
+                Value="30" />
+            <Setter
+                Property="HeightRequest"
+                Value="60" />
+            <Setter
+                Property="WidthRequest"
+                Value="60" />
+            <Setter
+                Property="Padding"
+                Value="8" />
+        </Style>
+
+        <Style
+            TargetType="Label">
+            <Setter
+                Property="TextColor"
+                Value="{StaticResource SecondaryDark}" />
+        </Style>
+
+        <Style
+            x:Key="LabelLight"
+            TargetType="Label">
+            <Setter
+                Property="TextColor"
+                Value="{StaticResource PrimaryLight}" />
+        </Style>
+
+        <Style
+            TargetType="Button">
+            <Setter
+                Property="BackgroundColor"
+                Value="{StaticResource PrimaryLight}" />
+            <Setter
+                Property="TextColor"
+                Value="White" />
+            <Setter
+                Property="FontSize"
+                Value="16" />
+        </Style>
+    </Application.Resources>
+</Application>

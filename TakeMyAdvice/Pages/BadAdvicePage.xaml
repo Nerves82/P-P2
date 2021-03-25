@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    BackgroundColor="{StaticResource Secondary}"
+    x:Class="TakeMyAdvice.Pages.BadAdvicePage">
+    <ContentPage.Content>
+
+        <Grid
+            RowDefinitions="16,60,*"
+            ColumnDefinitions="16,60,*">
+
+            <ffimageloadingsvg:SvgCachedImage
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                HeightRequest="300"
+                Source="resource://TakeMyAdvice.thumb.svg">
+                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                    <fftransformations:BlurredTransformation
+                        Radius="20" />
+                    <fftransformations:GrayscaleTransformation />
+                </ffimageloadingsvg:SvgCachedImage.Transformations>
+
+            </ffimageloadingsvg:SvgCachedImage>
+
+            <Label
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Text="Your Bad Advice List"
+                TextColor="White"
+                FontSize="24"
+                FontAttributes="Bold"
+                Grid.Column="2"
+                Grid.Row="1" />
+
+            <Frame
+                Grid.Column="1"
+                Grid.Row="1"
+                Style="{StaticResource RoundButtonFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+                <ffimageloadingsvg:SvgCachedImage
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    Source="resource://TakeMyAdvice.point.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <fftransformations:RotateTransformation
+                            Degrees="-90" />
+                        <fftransformations:FlipTransformation
+                            FlipType="Vertical" />
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+
+                </ffimageloadingsvg:SvgCachedImage>
+
+
+            </Frame>
+
+            <ListView
+                SeparatorColor="Transparent"
+                SelectionMode="None"
+                HasUnevenRows="True"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                BackgroundColor="Transparent"
+                x:Name="BadAdviceList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="MenuItem_Clicked"
+                                    CommandParameter="{Binding .}"
+                                    Text="Delete"
+                                    IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <Frame
+                                HasShadow="True"
+                                Margin="16,16,16,0"
+                                Padding="16">
+                                <StackLayout
+                                    VerticalOptions="Center"
+                                    BackgroundColor="Transparent">
+                                    <Label
+                                        Text="{Binding AdviceNumber,  StringFormat='#{0}'}" />
+                                    <Label
+                                        Text="{Binding AdviceMessage}" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+
+
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

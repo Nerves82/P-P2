@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TakeMyAdvice.Pages.LoginPage"
+    BackgroundColor="{StaticResource SecondaryDark}">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Frame
+                HasShadow="True"
+                Margin="32,0,32,0"
+                BackgroundColor="WhiteSmoke"
+                CornerRadius="30"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center">
+
+                <StackLayout>
+                    <Label
+                        Text="log in"
+                        HorizontalOptions="Center"
+                        FontSize="Large"
+                        Margin="0,0,0,16" />
+
+                    <Entry
+                        x:Name="UsernameEntry"
+                        Placeholder="Username" />
+                    <Entry
+                        x:Name="PasswordEntry"
+                        IsPassword="True"
+                        Placeholder="Password" />
+                    <BoxView
+                        HeightRequest="32" />
+                    <Button
+                        x:Name="ForgotPasswordButton"
+                        Text="forgot password?" />
+                    <Grid
+                        ColumnDefinitions="50*,50*">
+                        <Button
+                            x:Name="SignInButton"
+                            Grid.Column="0"
+                            Text="sign in" />
+                        <Button
+                            x:Name="CreateAccountButton"
+                            Grid.Column="1"
+                            Text="create account" />
+                    </Grid>
+                </StackLayout>
+
+            </Frame>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
